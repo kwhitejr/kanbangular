@@ -1,0 +1,11 @@
+.container-column {
+  display: flex;
+  background-color: green;
+}
+
+.item-column {
+  width: 300px;
+  height: 600px;
+  margin: 15px;
+  background-color: orange;
+}
