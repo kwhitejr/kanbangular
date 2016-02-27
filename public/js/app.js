@@ -13,10 +13,10 @@ app
   })
   .run([
     '$rootScope',
-    'APP_VERSION',
-    function ($rootScope, APP_VERSION) {
+    // 'APP_VERSION',
+    function ($rootScope) {
       // Start Application
       console.log("Pyuuy pyuu");
-      $rootScope.version = APP_VERSION;
+      // $rootScope.version = APP_VERSION;
     }
   ]);

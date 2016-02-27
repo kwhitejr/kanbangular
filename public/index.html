@@ -6,11 +6,15 @@
   <link rel="stylesheet" type="text/css" href="/styles/animations.css">
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 </head>
-<body>
+<body ng-app="app">
   <h1>Bang Bangular, You're Dead</h1>
 
-  <div class="container-column">
-    <div class="queue item-column">Queue</div>
+  <div class="container-column" ng-controller="MyController">
+    <div class="queue item-column">
+      <h2>Queue</h2>
+      <p>{{myFirstName}}</p>
+    </div>
+
     <div class="in-progress item-column">In-Progress</div>
     <div class="done item-column">Done</div>
   </div>
@@ -18,5 +22,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+  <script type="text/javascript" src="./js/controller.js"></script>
 </body>
 </html>
