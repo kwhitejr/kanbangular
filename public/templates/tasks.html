@@ -1,4 +1,20 @@
 <div class="container-column" ng-controller="MyController">
+
+  <div class="card-maker">
+    <form>
+      Title: <input type="text" ng-model="title">
+      Priotity: <input type="text" ng-model="priority">
+      Created By: <input type="text" ng-model="createdBy">
+      Assign To: <input type="text" ng-model="assignedTo">
+      <button ng-click="CardService.addBook(title, priority, createdBy, assignedTo);
+        title='';
+        priority='';
+        createdBy='';
+        assignedTo='';
+      ">Add Card</button>
+    </form>
+  </div>
+
   <div class="queue item-column">
     <h2>Queue</h2>
     <div class="card">

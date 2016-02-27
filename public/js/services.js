@@ -14,10 +14,3 @@ function CardService () {
     };
   };
 }
-
-/*
-Title (String)
-Priority (low, Medium, High, Blocker)
-Created By (Full Name)
-Assigned To (Full Name)
-*/
