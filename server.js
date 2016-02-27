@@ -8,6 +8,10 @@ var app = express();
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 
+app.use('/api', function (req, res, next) {
+
+});
+
 var server = app.listen(CONFIG.PORT, function() {
   console.log('Listening to port', CONFIG.PORT);
 });
