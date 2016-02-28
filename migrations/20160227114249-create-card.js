@@ -12,16 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       priority: {
-        type: Sequelize.NUMBER
-      },
-      createdBy: {
-        type: Sequelize.NUMBER
-      },
-      assignedTo: {
-        type: Sequelize.NUMBER
+        type: Sequelize.STRING
       },
       status: {
-        type: Sequelize.NUMBER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
