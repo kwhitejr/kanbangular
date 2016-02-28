@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     lastName: DataTypes.STRING,
     userName: DataTypes.STRING
   }, {
+    tableName: "users",
     classMethods: {
       associate: function(models) {
         User.hasMany(models.Card);

@@ -5,8 +5,8 @@ module.exports = {
     return queryInterface.bulkInsert('cards', [
       {
         title: "Create Database",
-        status: "In-Progress",
-        priority: "High",
+        status: "in-progress",
+        priority: "high",
         creator_id: 2,
         assignee_id: 3,
         createdAt: new Date(),
@@ -14,8 +14,8 @@ module.exports = {
       },
       {
         title: "Seed Database",
-        status: "In-Progress",
-        priority: "Medium",
+        status: "in-progress",
+        priority: "medium",
         creator_id: 2,
         assignee_id: 1,
         createdAt: new Date(),
@@ -23,8 +23,8 @@ module.exports = {
       },
       {
         title: "Post Card Data Via Form",
-        status: "Queue",
-        priority: "Medium",
+        status: "queue",
+        priority: "medium",
         creator_id: 2,
         assignee_id: 1,
         createdAt: new Date(),

@@ -1,17 +1,22 @@
 <div class="container-column" ng-controller="MyController">
 
   <div class="card-maker">
-    <form>
-      Title: <input type="text" ng-model="title">
-      Priotity: <input type="text" ng-model="priority">
-      Created By: <input type="text" ng-model="createdBy">
-      Assign To: <input type="text" ng-model="assignedTo">
-      <button ng-click="CardService.addBook(title, priority, createdBy, assignedTo);
-        title='';
-        priority='';
-        createdBy='';
-        assignedTo='';
-      ">Add Card</button>
+    <h1>Create New Card</h1>
+    <form action="/card" method="post">
+      <input name="title" type="text" ng-model="title" placeholder="title...">
+      <select name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="omega">Omega</option>
+      </select>
+      <select name="creator_id">
+        <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+      </select>
+      <select name="assignee_id">
+        <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+      </select>
+      <button ng-click="">Add Card</button>
     </form>
   </div>
 
@@ -29,4 +34,7 @@
   <div class="done item-column">
     <h2>Done</h2>
   </div>
+
+  {{users}}
+
 </div>

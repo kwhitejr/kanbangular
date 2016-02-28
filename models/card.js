@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     status: DataTypes.STRING,
     priority: DataTypes.STRING
   }, {
+    tableName: "cards",
     classMethods: {
       associate: function(models) {
         Card.belongsTo(models.User, {foreignKey: "creator_id", as: "createdBy"});
