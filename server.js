@@ -28,11 +28,18 @@ app.get('/api/users', function (req, res) {
       results.map(function (result) {
         return result.dataValues;
       });
-      res.send(results);
+      res.json(results);
     });
 });
 
-app.post('/card', function (req, res) {
+app.get('/api/cards', function (req, res) {
+  Card.findAll()
+    .then(function(results) {
+      return res.json(results);
+    });
+});
+
+app.post('/api/card', function (req, res) {
   var data = req.body;
   console.log(data);
   var card = {

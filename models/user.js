@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     tableName: "users",
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Card);
+        User.hasMany(models.Card, {foreignKey: "creator_id", as: "cards"});
       }
     }
   });

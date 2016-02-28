@@ -13,3 +13,17 @@ app.factory('Users', [
     };
   }
 ]);
+
+app.factory('Cards', [
+  '$http',
+  function ($http) {
+    return {
+      getCards: function() {
+        return $http({
+          method: 'GET',
+          url: '/api/cards'
+        });
+      }
+    };
+  }
+]);

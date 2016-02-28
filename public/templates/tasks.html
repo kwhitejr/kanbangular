@@ -2,18 +2,18 @@
 
   <div class="card-maker">
     <h1>Create New Card</h1>
-    <form action="/card" method="post">
-      <input name="title" type="text" ng-model="title" placeholder="title...">
-      <select name="priority">
+    <form action="/api/card" method="post">
+      Title: <input name="title" type="text" ng-model="title" placeholder="title...">
+      Priority: <select name="priority">
         <option value="low">Low</option>
         <option value="medium">Medium</option>
         <option value="high">High</option>
         <option value="omega">Omega</option>
       </select>
-      <select name="creator_id">
+      Creator: <select name="creator_id">
         <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
       </select>
-      <select name="assignee_id">
+      Assignee: <select name="assignee_id">
         <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
       </select>
       <button ng-click="">Add Card</button>

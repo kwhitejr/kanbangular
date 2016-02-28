@@ -15,7 +15,7 @@ html, body {
 
 .container-column {
 /*  display: flex;*/
-  background-color: green;
+  background-color: lightgreen;
   height: 100%;
   width: 100%;
 }
@@ -37,7 +37,7 @@ html, body {
 }
 
 .done {
-  background-color: blue;
+  background-color: lightblue;
 }
 
 .card {
