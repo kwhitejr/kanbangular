@@ -35,7 +35,10 @@ app.get('/api/users', function (req, res) {
 app.get('/api/cards', function (req, res) {
   Card.findAll()
     .then(function(results) {
-      return res.json(results);
+      results.map(function (result) {
+        return result.dataValues;
+      });
+      res.json(results);
     });
 });
 
@@ -56,6 +59,10 @@ app.post('/api/card', function (req, res) {
       console.log(result);
       return res.redirect('/');
     });
+});
+
+app.post('/api/delete/:id', function (req, res) {
+  console.log(req.params);
 });
 
 db.sequelize
