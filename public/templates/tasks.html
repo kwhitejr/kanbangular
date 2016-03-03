@@ -23,21 +23,21 @@
   <div class="queue item-column">
     <h2>Queue</h2>
     <div class="card" ng-repeat="card in cards | filter:{status: 'queue'}">
-      <div ng-include src="'./templates/card.html'"></div>
+      <card-directive card="card"></card-directive>
     </div>
   </div>
 
   <div class="in-progress item-column">
     <h2>In-Progress</h2>
     <div class="card" ng-repeat="card in cards | filter:{status: 'in-progress'}">
-      <div ng-include src="'./templates/card.html'"></div>
+      <card-directive card="card"></card-directive>
     </div>
   </div>
 
   <div class="done item-column">
     <h2>Done</h2>
     <div class="card" ng-repeat="card in cards | filter:{status: 'done'}">
-      <div ng-include src="'./templates/card.html'"></div>
+      <card-directive card="card"></card-directive>
     </div>
   </div>
 

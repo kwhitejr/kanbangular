@@ -1,17 +1,14 @@
 var app = angular.module('app');
 
-app.service('CardService', CardService);
+app.service('CardInfo', CardInfo);
 
-function CardService () {
-  var cards = [];
+function CardInfo () {
 
-  this.addCard = function (title, priority, createdBy, assignedTo) {
-    var newCard = {
-      title: title,
-      priority: priority,
-      createdBy: createdBy,
-      assignedTo: assignedTo
-    };
+  this.getInfo = function (id) {
+    return $http({
+      method: 'POST',
+      url: '/api/info'
+    });
   };
 }
 

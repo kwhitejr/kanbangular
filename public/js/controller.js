@@ -14,9 +14,27 @@ app
       Cards.getCards().then(function (res) {
         $scope.cards = res.data;
       });
-      $scope.dropped = function(dragElement, dropElement) {
 
-      };
     }
   ])
-  .directive();
+  // a directive creates a custom element or a custom attribute
+  .directive('cardDirective', function () {
+    return {
+      restrict: 'E', // default is E, but could also be an attribute, etc
+      scope: {
+        data: "=card" // the right side is the directive-element attribute
+      },
+      controller: [
+        '$scope',
+        '$http',
+        function ($scope, $http) {
+          $scope.update = function () {
+            console.log($scope.data);
+            return $http.post('/api/update', $scope.data);
+        };
+      }],
+      templateUrl: 'templates/card.html'
+
+      //insert Drag-and-Drop code here
+    };
+  });

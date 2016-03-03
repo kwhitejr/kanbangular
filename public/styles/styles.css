@@ -26,6 +26,7 @@ h3, p {
 
 .item-column {
   width: 30%;
+  min-width: 270px;
   height: 100%;
   margin: 15px;
   padding: 10px;

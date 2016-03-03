@@ -1,14 +1,14 @@
-<h3>{{card.title}}</h3>
-<p>created by: {{card.creator_id}}</p>
-<p>assigned to: {{card.assignee_id}}</p>
-<p>priority: {{card.priority}}</p>
+<h3>{{data.title}}</h3>
+<p>created by: {{data.creator_id}}</p>
+<p>assigned to: {{data.assignee_id}}</p>
+<p>priority: {{data.priority}}</p>
 <div class="buttons">
-  <form action="/api/update/{{card.id}}" method="post">
+  <form ng-submit="update()">
     <input type="submit" value="Queue" />
     <input type="submit" value="In-Progress" />
     <input type="submit" value="Done" />
   </form>
-  <form action="/api/delete/{{card.id}}" method="post">
+  <form ng-submit="delete">
     <input type="submit" value="Delete" />
   </form>
 </div>

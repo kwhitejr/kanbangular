@@ -12,6 +12,7 @@ var app = express();
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use('/api', function (req, res, next) {
@@ -61,8 +62,10 @@ app.post('/api/card', function (req, res) {
     });
 });
 
-app.post('/api/delete/:id', function (req, res) {
-  console.log(req.params);
+app.post('/api/update', function (req, res) {
+  console.log(req.body);
+  var data = req.body;
+
 });
 
 db.sequelize
