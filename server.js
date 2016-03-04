@@ -66,6 +66,31 @@ app.post('/api/update', function (req, res) {
   console.log(req.body);
   var data = req.body;
 
+  Card.update(
+    {status: data.newStatus},
+    {where:
+      {id: data.id}
+    }
+  )
+    .then(function (results) {
+      console.log(results);
+      res.json(results);
+    });
+});
+
+app.post('/api/delete', function (req, res) {
+  console.log(req.body);
+  var data = req.body;
+
+  Card.destroy(
+    {
+      where:
+        {id: parseInt(data.id)}
+    }
+  )
+  .then(function () {
+      res.redirect('/');
+    });
 });
 
 db.sequelize
