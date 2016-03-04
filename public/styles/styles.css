@@ -18,6 +18,10 @@ h3, p {
   height: 100%;
 }
 
+.card-maker {
+  margin: 15px;
+}
+
 .container-column {
 /*  display: flex;*/
   height: 100%;
@@ -31,6 +35,7 @@ h3, p {
   margin: 15px;
   padding: 10px;
   float: left;
+  overflow: scroll;
 }
 
 .queue {
