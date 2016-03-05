@@ -31,8 +31,8 @@ app
         '$scope',
         '$http',
         function ($scope, $http) {
-          // $scope.createdByName = ;
-          // $scope.assignedToName;
+          $scope.createdByName = getUserName($scope.data.creator_id, $scope.$parent.users);
+          $scope.assignedToName = getUserName($scope.data.assignee_id, $scope.$parent.users);
           $scope.update = function ($event) {
             $event.preventDefault();
             var updatedCard = {
@@ -56,12 +56,18 @@ app
               });
           };
 
-          // function getUserName (userId, users) {
-          //   var userIndex = users.indexOf(userId);
-          //   if (userIndex > -1) {
-          //     return users[userIndex].userName;
-          //   }
-          // }
+          function getUserName (userId, users) {
+            console.log("calling all usernames");
+            // debugger;
+            var result = users.filter(function (user) {
+              return user.id === userId;
+            });
+            if (result.length > 0) {
+              return result[0].userName;
+            } else {
+              return '';
+            }
+          }
         }
       ],
       templateUrl: 'templates/card.html'

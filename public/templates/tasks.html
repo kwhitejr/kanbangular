@@ -1,25 +1,5 @@
 <div class="container-column" ng-controller="MyController">
 
-  <div class="card-maker">
-    <h1>Create New Card</h1>
-    <form action="/api/card" method="post">
-      Title: <input name="title" type="text" ng-model="title" placeholder="title...">
-      Priority: <select name="priority">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-        <option value="omega">Omega</option>
-      </select>
-      Creator: <select name="creator_id">
-        <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
-      </select>
-      Assignee: <select name="assignee_id">
-        <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
-      </select>
-      <button>Add Card</button>
-    </form>
-  </div>
-
   <div class="queue item-column">
     <h2>Queue</h2>
     <div ng-repeat="card in cards | filter:{status: 'queue'}">

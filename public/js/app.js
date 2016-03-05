@@ -20,7 +20,6 @@ app
     // 'APP_VERSION',
     function ($rootScope) {
       // Start Application
-      console.log("Pyuuy pyuu");
       // $rootScope.version = APP_VERSION;
     }
   ]);

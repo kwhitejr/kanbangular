@@ -9,6 +9,35 @@
 <body ng-app="app">
   <h1>Bang Bangular, You're Dead</h1>
 
+  <div class="make-user" ng-controller="MyController">
+    <h2>User Sign Up</h2>
+    <form action="/api/newUser" method="post">
+      First Name: <input name="firstName" type="text" />
+      Last Name: <input name="lastName" type="text" />
+      UserName: <input name="userName" type="text" />
+    </form>
+  </div>
+
+  <div class="card-maker" ng-controller="MyController">
+  <h2>Create New Card</h1>
+  <form action="/api/card" method="post">
+    Title: <input name="title" type="text" ng-model="title" placeholder="title...">
+    Priority: <select name="priority">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+      <option value="omega">Omega</option>
+    </select>
+    Creator: <select name="creator_id">
+      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+    </select>
+    Assignee: <select name="assignee_id">
+      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+    </select>
+    <button>Add Card</button>
+  </form>
+</div>
+
   <div ng-view class="wrapper"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
