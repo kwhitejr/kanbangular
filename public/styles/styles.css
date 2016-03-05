@@ -80,9 +80,9 @@ h3, p {
   background-color: red;
 }
 
-/*form.status {
-  display: block;
-}*/
+.status > form > button {
+  float: left;
+}
 
 /*.button {
   display: inline-block;

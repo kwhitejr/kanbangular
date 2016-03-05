@@ -31,6 +31,8 @@ app
         '$scope',
         '$http',
         function ($scope, $http) {
+          // $scope.createdByName = ;
+          // $scope.assignedToName;
           $scope.update = function ($event) {
             $event.preventDefault();
             var updatedCard = {
@@ -53,6 +55,13 @@ app
                 $scope.refreshCards();
               });
           };
+
+          // function getUserName (userId, users) {
+          //   var userIndex = users.indexOf(userId);
+          //   if (userIndex > -1) {
+          //     return users[userIndex].userName;
+          //   }
+          // }
         }
       ],
       templateUrl: 'templates/card.html'

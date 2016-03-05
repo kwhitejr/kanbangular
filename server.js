@@ -39,6 +39,7 @@ app.get('/api/cards', function (req, res) {
       results.map(function (result) {
         return result.dataValues;
       });
+      console.log(results);
       res.json(results);
     });
 });
