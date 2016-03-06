@@ -43,6 +43,10 @@ app.get('/api/cards', function (req, res) {
     });
 });
 
+app.get('/api/editCard', function (req, res) {
+
+});
+
 app.post('/api/newUser', function (req, res) {
   var data = req.body;
   console.log(data);
@@ -88,8 +92,8 @@ app.post('/api/delete', function (req, res) {
         {id: parseInt(data.id)}
     }
   )
-  .then(function () {
-      res.redirect('/');
+  .then(function (results) {
+      res.json(results);
     });
 });
 

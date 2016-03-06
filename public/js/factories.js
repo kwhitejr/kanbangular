@@ -22,12 +22,18 @@ app.factory('Users', [
 app.factory('Cards', [
   '$http',
   function ($http) {
+    var cardsArray = [];
+
     return {
+      fetchCards: function() {
+        return $http.get('/api/cards')
+          .then(function (results) {
+            cardsArray = results.data;
+          });
+      },
+
       getCards: function() {
-        return $http({
-          method: 'GET',
-          url: '/api/cards'
-        });
+        return cardsArray;
       },
 
       createNewCard: function(newCardData) {

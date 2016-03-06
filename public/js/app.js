@@ -6,7 +6,10 @@ app
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/templates/tasks.html',
+        templateUrl: '/templates/tasks.html'
+      })
+      .when('/editCard', {
+        templateUrl: '/templates/editCard.html'
       })
       .when('/404', {
         templateUrl: '/templates/404.html'

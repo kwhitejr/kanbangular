@@ -59,7 +59,7 @@ app
 
       $scope.refreshCards = function () {
         return Cards
-          .getCards()
+          .fetchCards()
           .then(function (fetchedCards) {
             $scope.cards = fetchedCards.data;
         });
@@ -80,16 +80,17 @@ app
       controller: [
         '$scope',
         '$http',
+        'CardService',
         function ($scope, $http) {
           $scope.createdByName = getUserName($scope.data.creator_id, $scope.$parent.users);
           $scope.assignedToName = getUserName($scope.data.assignee_id, $scope.$parent.users);
+
           $scope.update = function ($event, status) {
             $event.preventDefault();
             var updatedCard = {
               id: $scope.data.id,
               newStatus: status
             };
-
             return $http.post('/api/update', updatedCard)
               .then(function() {
                 $scope.refreshCards();
@@ -101,6 +102,10 @@ app
               .then(function () {
                 $scope.refreshCards();
               });
+          };
+
+          $scope.startEdit = function () {
+            return $http.get('/api/editCard', $scope.data);
           };
 
           function getUserName (userId, users) {
