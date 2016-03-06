@@ -18,18 +18,16 @@ h3, p {
   height: 100%;
 }
 
-.make-user {
+.make-user, .card-maker {
   margin: 15px;
-}
-
-.card-maker {
-  margin: 15px;
+  min-width: 700px;
 }
 
 .container-column {
 /*  display: flex;*/
   height: 100%;
   width: 100%;
+  min-width: 900px;
 }
 
 .item-column {
@@ -66,6 +64,26 @@ h3, p {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   box-shadow: 0 0 10px #E8E8E8;
+}
+
+/*.cardSection {
+  display: block;
+}*/
+
+.cardHeader {
+  height: 20%;
+}
+
+.cardBody {
+  height: 80%;
+}
+
+.cardTitle {
+  float: left;
+}
+
+.cardEdit {
+  float: right;
 }
 
 .yellow {

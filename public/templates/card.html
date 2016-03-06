@@ -1,16 +1,21 @@
 <div class="card" ng-class="{yellow: data.priority == 'low', orange: data.priority == 'medium', pink: data.priority == 'high', red: data.priority == 'omega'}">
-  <h3>{{data.title}}</h3>
-  <p>created by: {{createdByName}}</p>
-  <p>assigned to: {{assignedToName}}</p>
-  <p>priority: {{data.priority}}</p>
-  <div class="buttons">
-    <div class="status">
-      <button ng-click="update($event, 'queue')" name="newStatus">Queue</button>
-      <button ng-click="update($event, 'in-progress')" name="newStatus">In-Progress</button>
-      <button ng-click="update($event, 'done')" name="newStatus">Done</button>
+  <div class="cardHeader cardSection">
+    <h3 class="cardTitle">{{data.title}}</h3>
+    <button class="cardEdit">Edit</button>
+  </div>
+  <div class="cardBody cardSection">
+    <p>created by: {{createdByName}}</p>
+    <p>assigned to: {{assignedToName}}</p>
+    <p>priority: {{data.priority}}</p>
+    <div class="buttons">
+      <div class="status">
+        <button ng-click="update($event, 'queue')" name="newStatus">Queue</button>
+        <button ng-click="update($event, 'in-progress')" name="newStatus">In-Progress</button>
+        <button ng-click="update($event, 'done')" name="newStatus">Done</button>
+      </div>
+      <form ng-submit="delete()">
+        <input type="submit" value="Delete" />
+      </form>
     </div>
-    <form ng-submit="delete()">
-      <input type="submit" value="Delete" />
-    </form>
   </div>
 </div>
