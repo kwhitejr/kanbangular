@@ -5,15 +5,9 @@
   <p>priority: {{data.priority}}</p>
   <div class="buttons">
     <div class="status">
-      <form ng-submit="update($event)">
-        <button type="click" name="newStatus" value="queue">Queue</button>
-      </form>
-      <form ng-submit="update($event)">
-        <button type="click" name="newStatus" value="in-progress">In-Progress</button>
-      </form>
-      <form ng-submit="update($event)">
-        <button type="click" name="newStatus" value="done">Done</button>
-      </form>
+      <button ng-click="update($event, 'queue')" name="newStatus">Queue</button>
+      <button ng-click="update($event, 'in-progress')" name="newStatus">In-Progress</button>
+      <button ng-click="update($event, 'done')" name="newStatus">Done</button>
     </div>
     <form ng-submit="delete()">
       <input type="submit" value="Delete" />

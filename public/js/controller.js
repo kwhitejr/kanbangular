@@ -83,11 +83,11 @@ app
         function ($scope, $http) {
           $scope.createdByName = getUserName($scope.data.creator_id, $scope.$parent.users);
           $scope.assignedToName = getUserName($scope.data.assignee_id, $scope.$parent.users);
-          $scope.update = function ($event) {
+          $scope.update = function ($event, status) {
             $event.preventDefault();
             var updatedCard = {
               id: $scope.data.id,
-              newStatus: $event.target.newStatus.value
+              newStatus: status
             };
 
             return $http.post('/api/update', updatedCard)
