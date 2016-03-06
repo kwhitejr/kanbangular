@@ -61,7 +61,7 @@ app
         return Cards
           .fetchCards()
           .then(function (fetchedCards) {
-            $scope.cards = fetchedCards.data;
+            $scope.cards = fetchedCards;
         });
       };
 
