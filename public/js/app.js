@@ -7,7 +7,6 @@ app
     $routeProvider
       .when('/', {
         templateUrl: '/templates/tasks.html',
-        controller: 'MyController'
       })
       .when('/404', {
         templateUrl: '/templates/404.html'

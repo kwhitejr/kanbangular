@@ -1,5 +1,6 @@
-<div class="container-column" ng-controller="MyController">
+<div class="container-column" >
 
+{{cards.length}}
   <div class="queue item-column">
     <h2>Queue</h2>
     <div ng-repeat="card in cards | filter:{status: 'queue'}">

@@ -18,6 +18,10 @@ h3, p {
   height: 100%;
 }
 
+.make-user {
+  margin: 15px;
+}
+
 .card-maker {
   margin: 15px;
 }

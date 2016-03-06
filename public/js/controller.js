@@ -5,20 +5,70 @@ app
     '$scope',
     'Users',
     'Cards',
-    function ($scope, Users, Cards) {
+    '$http',
+    function ($scope, Users, Cards, $http) {
       $scope.users = [];
-      Users.getUsers().then(function (res) {
-        $scope.users = res.data;
-      });
-      $scope.refreshCards = function () {
-        Cards.getCards().then(function (res) {
-          $scope.cards = res.data;
+      $scope.cards = [];
+
+      Users
+        .getUsers()
+        .then(function (fetchedUsers) {
+          $scope.users = fetchedUsers.data;
+        });
+
+      $scope.createCard = function ($event) {
+        $event.preventDefault();
+        newCard = {
+          title: $event.target.title.value,
+          status: "queue",
+          priority: $event.target.priority.value,
+          creator_id: parseInt($event.target.creator_id.value),
+          assignee_id: parseInt($event.target.assignee_id.value)
+        };
+
+        return Cards
+          .createNewCard(newCard)
+          .then(function () {
+            return $scope.refreshCards();
+        })
+          .catch(function (err) {
+            console.log(err);
+          });
+      };
+
+      $scope.createUser = function ($event) {
+        $event.preventDefault();
+        newUser = {
+          firstName: $event.target.firstName.value,
+          lastName: $event.target.lastName.value,
+          userName: $event.target.userName.value
+        };
+        // use existing factory to send post req
+        return Users
+          .createNewUser(newUser)
+          .then(function () {
+            return Users.getUsers()
+          .then(function (fetchedUsers) {
+            $scope.users = fetchedUsers.data;
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
         });
       };
-      $scope.cards = [];
+
+      $scope.refreshCards = function () {
+        return Cards
+          .getCards()
+          .then(function (fetchedCards) {
+            $scope.cards = fetchedCards.data;
+        });
+      };
+
       $scope.refreshCards();
     }
   ])
+
   // a directive creates a custom element or a custom attribute
   .directive('cardDirective', function () {
     return {
@@ -39,9 +89,7 @@ app
               id: $scope.data.id,
               newStatus: $event.target.newStatus.value
             };
-            // console.log($event.target);
-            // console.log($event.target.newStatus.value);
-            // console.log($scope.data);
+
             return $http.post('/api/update', updatedCard)
               .then(function() {
                 $scope.refreshCards();
@@ -49,7 +97,6 @@ app
           };
 
           $scope.delete = function () {
-            console.log($scope.data);
             return $http.post('/api/delete', $scope.data)
               .then(function () {
                 $scope.refreshCards();
@@ -57,8 +104,6 @@ app
           };
 
           function getUserName (userId, users) {
-            console.log("calling all usernames");
-            // debugger;
             var result = users.filter(function (user) {
               return user.id === userId;
             });

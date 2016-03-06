@@ -39,32 +39,33 @@ app.get('/api/cards', function (req, res) {
       results.map(function (result) {
         return result.dataValues;
       });
-      console.log(results);
       res.json(results);
     });
 });
 
-app.post('/api/card', function (req, res) {
+app.post('/api/newUser', function (req, res) {
   var data = req.body;
   console.log(data);
-  var card = {
-    title: data.title,
-    status: "queue",
-    priority: data.priority,
-    creator_id: parseInt(data.creator_id),
-    assignee_id: parseInt(data.assignee_id)
-  };
-  console.log(card);
 
-  Card.create(card)
+  return User
+    .create(data)
     .then(function (result) {
-      console.log(result);
-      return res.redirect('/');
+      return res.json(result);
+    });
+});
+
+app.post('/api/newCard', function (req, res) {
+  var data = req.body;
+  console.log(data);
+
+  return Card
+    .create(data)
+    .then(function (result) {
+      return res.json(result);
     });
 });
 
 app.post('/api/update', function (req, res) {
-  console.log(req.body);
   var data = req.body;
 
   Card.update(
@@ -74,13 +75,11 @@ app.post('/api/update', function (req, res) {
     }
   )
     .then(function (results) {
-      console.log(results);
       res.json(results);
     });
 });
 
 app.post('/api/delete', function (req, res) {
-  console.log(req.body);
   var data = req.body;
 
   Card.destroy(

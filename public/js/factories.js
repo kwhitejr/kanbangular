@@ -9,6 +9,11 @@ app.factory('Users', [
           method: 'GET',
           url: '/api/users'
         });
+      },
+
+      createNewUser: function(newUserData) {
+        // can do validations and etc here rather than on the server
+        return $http.post('/api/newUser', newUserData);
       }
     };
   }
@@ -23,7 +28,13 @@ app.factory('Cards', [
           method: 'GET',
           url: '/api/cards'
         });
+      },
+
+      createNewCard: function(newCardData) {
+        return $http.post('/api/newCard', newCardData);
       }
     };
   }
 ]);
+
+
