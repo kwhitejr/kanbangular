@@ -8,7 +8,7 @@ app
       .when('/', {
         templateUrl: '/templates/tasks.html'
       })
-      .when('/editCard', {
+      .when('/editCard/:id', {
         templateUrl: '/templates/editCard.html'
       })
       .when('/404', {

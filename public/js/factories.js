@@ -25,6 +25,7 @@ app.factory('Cards', [
     var cardsArray = [];
 
     return {
+      // Fetch all cards in the database via postgres query
       fetchCards: function() {
         return $http.get('/api/cards')
           .then(function (results) {
@@ -32,8 +33,16 @@ app.factory('Cards', [
           });
       },
 
+      // Get all cards currently in angular memory
       getCards: function() {
         return cardsArray;
+      },
+
+      // Get a single card currently in angular memory
+      getOneCard: function(cardId) {
+        cardsArray.filter(function (card) {
+          return card.id === cardId;
+        });
       },
 
       createNewCard: function(newCardData) {

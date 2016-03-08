@@ -1,12 +1,13 @@
-<div>
-  <div ng-class="{yellow: data.priority == 'low', orange: data.priority == 'medium', pink: data.priority == 'high', red: data.priority == 'omega'}">
+<editCard>
+  <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}">
     <div class="cardHeader cardSection">
-      <h3 class="cardTitle">{{data.title}}</h3>
+      <h3 class="cardTitle">{{card.title}}</h3>
+      {{$routeParams.id}}
     </div>
     <div class="cardBody cardSection">
       <p>created by: {{createdByName}}</p>
       <p>assigned to: {{assignedToName}}</p>
-      <p>priority: {{data.priority}}</p>
+      <p>priority: {{card.priority}}</p>
       <div class="buttons">
         <div class="status">
           <button ng-click="update($event, 'queue')" name="newStatus">Queue</button>
@@ -19,4 +20,4 @@
       </div>
     </div>
   </div>
-</div>
+</editCard>

@@ -6,7 +6,9 @@ app
     'Users',
     'Cards',
     '$http',
-    function ($scope, Users, Cards, $http) {
+    '$routeParams',
+    function ($scope, Users, Cards, $http, $routeParams) {
+
       $scope.users = [];
       $scope.cards = [];
 
@@ -58,11 +60,11 @@ app
       };
 
       $scope.refreshCards = function () {
-        return Cards
-          .fetchCards()
-          .then(function (fetchedCards) {
-            $scope.cards = fetchedCards;
-        });
+        Cards.fetchCards()
+          .then(function () {
+            var allCards = Cards.getCards();
+            $scope.cards = allCards;
+          });
       };
 
       $scope.refreshCards();
@@ -80,7 +82,6 @@ app
       controller: [
         '$scope',
         '$http',
-        'CardService',
         function ($scope, $http) {
           $scope.createdByName = getUserName($scope.data.creator_id, $scope.$parent.users);
           $scope.assignedToName = getUserName($scope.data.assignee_id, $scope.$parent.users);
@@ -123,5 +124,27 @@ app
       templateUrl: 'templates/card.html'
 
       //insert Drag-and-Drop code here
+    };
+  })
+
+  .directive('editCard', function () {
+    return {
+      restrict: 'E', // default is E, but could also be an attribute, etc
+      scope: {
+
+      },
+      controller: [
+        '$scope',
+        '$http',
+        'Cards',
+        function ($scope, $http, Cards) {
+          $scope.card = {};
+          Cards.getOneCard() // if I need to use $routeParams, enter $routeParams.id here?
+            .then(function (result) {
+              $scope.card = result;
+            });
+        }
+      ],
+      templateUrl: 'templates/editCard.html'
     };
   });

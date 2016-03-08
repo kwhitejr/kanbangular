@@ -43,7 +43,7 @@ app.get('/api/cards', function (req, res) {
     });
 });
 
-app.get('/api/editCard', function (req, res) {
+app.get('/api/editCard/:id', function (req, res) {
 
 });
 

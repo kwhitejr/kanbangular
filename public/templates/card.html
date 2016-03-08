@@ -1,7 +1,7 @@
 <div class="card" ng-class="{yellow: data.priority == 'low', orange: data.priority == 'medium', pink: data.priority == 'high', red: data.priority == 'omega'}">
   <div class="cardHeader cardSection">
     <h3 class="cardTitle">{{data.title}}</h3>
-    <a class="cardEdit" href="/#/editCard">Edit</a>
+    <a class="cardEdit" href="/#/editCard/{{data.id}}">Edit</a>
   </div>
   <div class="cardBody cardSection">
     <p>created by: {{createdByName}}</p>
