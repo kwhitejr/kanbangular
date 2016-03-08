@@ -106,6 +106,7 @@ h3, p {
   float: left;
 }
 
-/*.button {
-  display: inline-block;
-}*/
+.editCard {
+  height: 80%;
+  width: 80%;
+}

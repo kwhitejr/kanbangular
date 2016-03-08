@@ -9,6 +9,7 @@ app
         templateUrl: '/templates/tasks.html'
       })
       .when('/editCard/:id', {
+        controller: 'editCardController',
         templateUrl: '/templates/editCard.html'
       })
       .when('/404', {

@@ -40,7 +40,7 @@ app.factory('Cards', [
 
       // Get a single card currently in angular memory
       getOneCard: function(cardId) {
-        cardsArray.filter(function (card) {
+        return cardsArray.filter(function (card) {
           return card.id === cardId;
         });
       },

@@ -43,9 +43,9 @@ app.get('/api/cards', function (req, res) {
     });
 });
 
-app.get('/api/editCard/:id', function (req, res) {
+// app.get('/api/editCard/:id', function (req, res) {
 
-});
+// });
 
 app.post('/api/newUser', function (req, res) {
   var data = req.body;

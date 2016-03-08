@@ -1,12 +1,11 @@
-<editCard>
-  <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}">
+<div>
+  <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}" class="editCard">
     <div class="cardHeader cardSection">
       <h3 class="cardTitle">{{card.title}}</h3>
-      {{$routeParams.id}}
     </div>
     <div class="cardBody cardSection">
-      <p>created by: {{createdByName}}</p>
-      <p>assigned to: {{assignedToName}}</p>
+      <p>created by: {{card.creator_id}}</p>
+      <p>assigned to: {{card.assignee_id}}</p>
       <p>priority: {{card.priority}}</p>
       <div class="buttons">
         <div class="status">
@@ -20,4 +19,4 @@
       </div>
     </div>
   </div>
-</editCard>
+</div>

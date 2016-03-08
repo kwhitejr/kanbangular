@@ -6,8 +6,7 @@ app
     'Users',
     'Cards',
     '$http',
-    '$routeParams',
-    function ($scope, Users, Cards, $http, $routeParams) {
+    function ($scope, Users, Cards, $http) {
 
       $scope.users = [];
       $scope.cards = [];
@@ -125,26 +124,15 @@ app
 
       //insert Drag-and-Drop code here
     };
-  })
-
-  .directive('editCard', function () {
-    return {
-      restrict: 'E', // default is E, but could also be an attribute, etc
-      scope: {
-
-      },
-      controller: [
-        '$scope',
-        '$http',
-        'Cards',
-        function ($scope, $http, Cards) {
-          $scope.card = {};
-          Cards.getOneCard() // if I need to use $routeParams, enter $routeParams.id here?
-            .then(function (result) {
-              $scope.card = result;
-            });
-        }
-      ],
-      templateUrl: 'templates/editCard.html'
-    };
   });
+
+app.controller('editCardController', [
+  '$scope',
+  '$routeParams',
+  'Cards',
+  function ($scope, $routeParams, Cards) {
+    $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
+    $scope.card = $scope.temp[0];
+    console.log($scope.card);
+  }
+]);
