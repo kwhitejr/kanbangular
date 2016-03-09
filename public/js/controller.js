@@ -12,9 +12,9 @@ app
       $scope.cards = [];
 
       Users
-        .getUsers()
-        .then(function (fetchedUsers) {
-          $scope.users = fetchedUsers.data;
+        .fetchUsers()
+        .then(function () {
+          $scope.users = Users.getUsers();
         });
 
       $scope.createCard = function ($event) {
@@ -48,7 +48,7 @@ app
         return Users
           .createNewUser(newUser)
           .then(function () {
-            return Users.getUsers()
+            return Users.fetchUsers()
           .then(function (fetchedUsers) {
             $scope.users = fetchedUsers.data;
           })
@@ -130,9 +130,26 @@ app.controller('editCardController', [
   '$scope',
   '$routeParams',
   'Cards',
-  function ($scope, $routeParams, Cards) {
+  'Users',
+  function ($scope, $routeParams, Cards, Users) {
     $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
     $scope.card = $scope.temp[0];
     console.log($scope.card);
+    $scope.users = Users.getUsers();
+    console.log($scope.users);
+
+    $scope.createdByName = getUserName($scope.card.creator_id, $scope.users);
+    $scope.assignedToName = getUserName($scope.card.assignee_id, $scope.users);
+
+    function getUserName (userId, users) {
+      var result = users.filter(function (user) {
+        return user.id === userId;
+      });
+      if (result.length > 0) {
+        return result[0].userName;
+      } else {
+        return '';
+      }
+    }
   }
 ]);

@@ -3,12 +3,18 @@ var app = angular.module('app');
 app.factory('Users', [
   '$http',
   function ($http) {
+    var usersArray = [];
+
     return {
-      getUsers: function() {
-        return $http({
-          method: 'GET',
-          url: '/api/users'
+      fetchUsers: function() {
+        return $http.get('/api/users')
+          .then(function (results) {
+            usersArray = results.data;
         });
+      },
+
+      getUsers: function() {
+        return usersArray;
       },
 
       createNewUser: function(newUserData) {
@@ -52,4 +58,11 @@ app.factory('Cards', [
   }
 ]);
 
+app.factory('Priorities', [
+  '$http',
+  function ($http) {
+    var cardsArray = [];
 
+    return {};
+  }
+]);
