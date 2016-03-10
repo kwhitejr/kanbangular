@@ -14,8 +14,12 @@ h1 {
   text-align: center;
 }
 
-h3, p {
+h3 {
   margin: 0px;
+}
+
+p {
+  margin: 0px 0px 0px 10px;
 }
 
 .wrapper {

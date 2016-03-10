@@ -105,18 +105,6 @@ app
           $scope.createdByName = getUserName($scope.data.creator_id, $scope.$parent.users);
           $scope.assignedToName = getUserName($scope.data.assignee_id, $scope.$parent.users);
 
-          $scope.update = function ($event, status) {
-            $event.preventDefault();
-            var updatedCard = {
-              id: $scope.data.id,
-              newStatus: status
-            };
-            return $http.post('/api/update', updatedCard)
-              .then(function() {
-                $scope.refreshCards();
-              });
-          };
-
           $scope.startEdit = function () {
             return $http.get('/api/editCard', $scope.data);
           };
@@ -149,8 +137,22 @@ app.controller('editCardController', [
   'Priorities',
   'Statuses',
   function ($scope, $routeParams, $http, $location, Cards, Users, Priorities, Statuses) {
+
     $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
     $scope.card = $scope.temp[0];
+
+    if ($scope.card) {
+      console.log($scope.card);
+
+    } else {
+      return Cards.fetchCards()
+        .then(function () {
+          $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
+          $scope.card = $scope.temp[0];
+          console.log($scope.card);
+        });
+    }
+
     $scope.users = Users.getUsers();
     $scope.priorities = Priorities.getPriorities();
     $scope.statuses = Statuses.getStatuses();
