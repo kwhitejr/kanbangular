@@ -20,7 +20,7 @@
         </select>
         <br>
         Status:
-        <select name="status">
+        <select name="status" value="{{card.status}}">
           <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
         </select>
         <br>

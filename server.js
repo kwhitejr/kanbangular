@@ -118,6 +118,21 @@ app.post('/api/delete', function (req, res) {
     });
 });
 
+app.post('/api/delete/:id', function (req, res) {
+  var data = req.params;
+  console.log(data);
+
+  Card.destroy(
+    {
+      where:
+        {id: parseInt(data.id)}
+    }
+  )
+  .then(function (results) {
+      res.json(results);
+    });
+});
+
 db.sequelize
   .sync()
   .then(function () {

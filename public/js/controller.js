@@ -160,7 +160,13 @@ app.controller('editCardController', [
 
       return $http.post('/api/update/' + $scope.card.id, updatedCard)
         .success(function (result) {
-          console.log(result);
+          $location.path('/');
+        });
+    };
+
+    $scope.delete = function () {
+      return $http.post('/api/delete/' + $scope.card.id)
+        .success(function (result) {
           $location.path('/');
         });
     };
