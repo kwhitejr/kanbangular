@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngAnimate']);
+angular.module('app', ['ngRoute', 'ngAnimate', angularDragula(angular)]);
 
 var app = angular.module('app');
 
