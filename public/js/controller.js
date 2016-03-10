@@ -97,13 +97,6 @@ app
               });
           };
 
-          $scope.delete = function () {
-            return $http.post('/api/delete', $scope.data)
-              .then(function () {
-                $scope.refreshCards();
-              });
-          };
-
           $scope.startEdit = function () {
             return $http.get('/api/editCard', $scope.data);
           };
