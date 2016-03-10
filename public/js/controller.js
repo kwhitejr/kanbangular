@@ -141,15 +141,20 @@ app.controller('editCardController', [
     $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
     $scope.card = $scope.temp[0];
 
-    if ($scope.card) {
-      console.log($scope.card);
-
-    } else {
+    if (! $scope.card) {
       return Cards.fetchCards()
         .then(function () {
           $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
           $scope.card = $scope.temp[0];
-          console.log($scope.card);
+        })
+        .then(Users.fetchUsers()
+          .then(function () {
+            $scope.users = Users.getUsers();
+          })
+        )
+        .then(function () {
+          $scope.priorities = Priorities.getPriorities();
+          $scope.statuses = Statuses.getStatuses();
         });
     }
 
