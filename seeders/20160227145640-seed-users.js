@@ -7,6 +7,7 @@ module.exports = {
         firstName: "Kevin",
         lastName: "White",
         userName: "kwhitejr",
+        password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -14,6 +15,7 @@ module.exports = {
         firstName: "Fred",
         lastName: "Im",
         userName: "fimhub",
+        password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -21,6 +23,7 @@ module.exports = {
         firstName: "Tony",
         lastName: "Gaskell",
         userName: "thgaskell",
+        password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()
       }
