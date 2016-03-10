@@ -83,6 +83,27 @@ app.post('/api/update', function (req, res) {
     });
 });
 
+app.post('/api/update/:id', function (req, res) {
+  var data = req.body;
+  console.log(data);
+
+  Card.update(
+    {
+      title: data.title,
+      creator_id: data.creator_id,
+      assignee_id: data.assignee_id,
+      priority: data.priority,
+      status: data.status
+    },
+    {where:
+      { id: data.id }
+    }
+  )
+    .then(function (results) {
+      res.json(results);
+    });
+});
+
 app.post('/api/delete', function (req, res) {
   var data = req.body;
 

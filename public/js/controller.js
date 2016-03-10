@@ -129,17 +129,41 @@ app
 app.controller('editCardController', [
   '$scope',
   '$routeParams',
+  '$http',
+  '$location',
   'Cards',
   'Users',
-  function ($scope, $routeParams, Cards, Users) {
+  'Priorities',
+  'Statuses',
+  function ($scope, $routeParams, $http, $location, Cards, Users, Priorities, Statuses) {
     $scope.temp = Cards.getOneCard(parseInt($routeParams.id));
     $scope.card = $scope.temp[0];
-    console.log($scope.card);
     $scope.users = Users.getUsers();
-    console.log($scope.users);
+    $scope.priorities = Priorities.getPriorities();
+    console.log($scope.priorities);
+    $scope.statuses = Statuses.getStatuses();
 
     $scope.createdByName = getUserName($scope.card.creator_id, $scope.users);
     $scope.assignedToName = getUserName($scope.card.assignee_id, $scope.users);
+
+    $scope.update = function ($event) {
+      $event.preventDefault();
+      var updatedCard = {
+        id: $scope.card.id,
+        title: $event.target.title.value,
+        creator_id: parseInt($event.target.creator_id.value),
+        assignee_id: parseInt($event.target.assignee_id.value),
+        priority: $event.target.priority.value,
+        status: $event.target.status.value
+      };
+      console.log(updatedCard);
+
+      return $http.post('/api/update/' + $scope.card.id, updatedCard)
+        .success(function (result) {
+          console.log(result);
+          $location.path('/');
+        });
+    };
 
     function getUserName (userId, users) {
       var result = users.filter(function (user) {

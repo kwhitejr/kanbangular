@@ -6,6 +6,7 @@ app
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        controller: 'MyController',
         templateUrl: '/templates/tasks.html'
       })
       .when('/editCard/:id', {

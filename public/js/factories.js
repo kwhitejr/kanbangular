@@ -59,10 +59,34 @@ app.factory('Cards', [
 ]);
 
 app.factory('Priorities', [
-  '$http',
-  function ($http) {
-    var cardsArray = [];
+  function () {
+    var prioritiesArray = [
+      "low",
+      "medium",
+      "high",
+      "omega"
+    ];
 
-    return {};
+    return {
+      getPriorities: function() {
+        return prioritiesArray;
+      }
+    };
+  }
+]);
+
+app.factory('Statuses', [
+  function () {
+    var statusesArray = [
+      "queue",
+      "in-progress",
+      "done"
+    ];
+
+    return {
+      getStatuses: function() {
+        return statusesArray;
+      }
+    };
   }
 ]);

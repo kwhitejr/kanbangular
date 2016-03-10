@@ -1,27 +1,37 @@
 <div>
   <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}" class="editCard">
-    <div class="">
-      <input type="text" value="{{card.title}}" required></input>
-    </div>
-    <div class="">
-    Creator:
-    <select name="creator_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
-    </select>
-    Assignee:
-    <select name="assignee_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
-    </select>
-    Priority:
-    <select name="priority">
-      <option value="{{user.priority}}">{{user.priority}}</option>
-    </select>
+    <form ng-submit="update($event)">
+      <div class="">
+        Title: <input type="text" name="title" value="{{card.title}}" required/>
+        <br>
+        Creator:
+        <select name="creator_id">
+          <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+        </select>
+        <br>
+        Assignee:
+        <select name="assignee_id">
+          <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+        </select>
+        <br>
+        Priority:
+        <select name="priority">
+          <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+        </select>
+        <br>
+        Status:
+        <select name="status">
+          <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+        </select>
+        <br>
+        <button>Update</button>
+      </div>
+    </form>
 
+    <form ng-submit="delete()">
+      <input type="submit" value="Delete" />
+    </form>
+    <a href="/#/" >Cancel</a>
 
-      <form ng-submit="delete()">
-        <input type="submit" value="Delete" />
-      </form>
-
-    </div>
   </div>
 </div>
