@@ -66,6 +66,25 @@ app
           });
       };
 
+      $scope
+        .$on('status-bag.drop', function (err, el, target, source, sibling) {
+          console.log("and now dropping...");
+          var id = el[0].id;
+          var status = target[0].classList[0];
+          $scope.update(id, status);
+        });
+
+      $scope.update = function (id, status) {
+        var updatedCard = {
+          id: id,
+          newStatus: status
+        };
+        return $http.post('/api/update', updatedCard)
+          .then(function() {
+            $scope.refreshCards();
+          });
+      };
+
       $scope.refreshCards();
     }
   ])
@@ -78,6 +97,7 @@ app
         data: "=card", // the right side is the directive-element attribute
         refreshCards: "=" // is equal to the things call 'refreshCards'  --> DONT FORGET NAME-SPACING IN YOUR HTML
       },
+      transclude: true,
       controller: [
         '$scope',
         '$http',

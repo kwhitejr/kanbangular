@@ -44,6 +44,11 @@ h3, p {
   overflow: scroll;
 }
 
+.queue, .in-progress, .done {
+  height: 100%;
+
+}
+
 .queue {
   background-color: gray;
 }
