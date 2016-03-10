@@ -133,7 +133,6 @@ app.controller('editCardController', [
     $scope.card = $scope.temp[0];
     $scope.users = Users.getUsers();
     $scope.priorities = Priorities.getPriorities();
-    console.log($scope.priorities);
     $scope.statuses = Statuses.getStatuses();
 
     $scope.createdByName = getUserName($scope.card.creator_id, $scope.users);
@@ -149,7 +148,6 @@ app.controller('editCardController', [
         priority: $event.target.priority.value,
         status: $event.target.status.value
       };
-      console.log(updatedCard);
 
       return $http.post('/api/update/' + $scope.card.id, updatedCard)
         .success(function (result) {

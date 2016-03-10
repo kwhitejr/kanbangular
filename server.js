@@ -1,6 +1,8 @@
 var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
+    // angular = require('angular'),
+    // angularDragula = require('angular-dragula'),
     morgan = require('morgan'),
     db = require('./models'),
     Card = db.Card,
