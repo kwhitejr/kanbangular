@@ -14,7 +14,7 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
-      userName: {
+      username: {
         type: Sequelize.STRING
       },
       password: {

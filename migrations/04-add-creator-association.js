@@ -23,22 +23,3 @@ module.exports = {
     );
   }
 };
-
-/*
-      createdBy: {
-        type: Sequelize.INTEGER
-      },
-      assignedTo: {
-        type: Sequelize.INTEGER
-      },
-
-
-      return queryInterface.addColumn(
-      'cards',
-      'assignee_id',
-      {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      });
-
-      */

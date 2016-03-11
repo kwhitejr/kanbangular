@@ -42,7 +42,8 @@ app
         newUser = {
           firstName: $event.target.firstName.value,
           lastName: $event.target.lastName.value,
-          userName: $event.target.userName.value
+          userName: $event.target.userName.value,
+          password: $event.target.password.value
         };
         // use existing factory to send post req
         return Users

@@ -6,7 +6,7 @@ module.exports = {
       {
         firstName: "Kevin",
         lastName: "White",
-        userName: "kwhitejr",
+        username: "kwhitejr",
         password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -14,7 +14,7 @@ module.exports = {
       {
         firstName: "Fred",
         lastName: "Im",
-        userName: "fimhub",
+        username: "fimhub",
         password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -22,7 +22,7 @@ module.exports = {
       {
         firstName: "Tony",
         lastName: "Gaskell",
-        userName: "thgaskell",
+        username: "thgaskell",
         password: "admin",
         createdAt: new Date(),
         updatedAt: new Date()

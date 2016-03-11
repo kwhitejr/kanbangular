@@ -125,3 +125,7 @@ p {
   height: 80%;
   width: 80%;
 }
+
+.input {
+  margin: 3px;
+}

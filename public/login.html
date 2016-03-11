@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+  <title>Login</title>
+</head>
+<body>
+  <h1>Welcome to Kanbangular</h1>
+  <div class="item-column login">
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+      <input class="input" type="text" name="userName" placeholder="username..."/>
+      <input class="input" type="password" name="password" placeholder="password..."/>
+      <input type="submit" value="login"/>
+    </form>
+  </div>
+
+  <div class="item-column signUp">
+    <h2>Sign Up</h2>
+    <form>
+      <input class="input" type="text" name="userName" placeholder="select username..."/>
+      <input class="input" type="password" name="password1" placeholder="password..."/>
+      <input class="input" type="password" name="password2" placeholder="re-type password..."/>
+      <input type="submit" value="sign up"/>
+    </form>
+  </div>
+</body>
+</html>
