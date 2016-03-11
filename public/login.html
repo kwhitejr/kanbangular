@@ -10,18 +10,21 @@
   <div class="item-column login">
     <h2>Login</h2>
     <form method="POST" action="/login">
-      <input class="input" type="text" name="username" placeholder="username..."/>
-      <input class="input" type="password" name="password" placeholder="password..."/>
+      <input class="input" type="text" name="username" placeholder="username..." required/>
+      <input class="input" type="password" name="password" placeholder="password..." required/>
       <input type="submit" value="login"/>
     </form>
   </div>
 
   <div class="item-column signUp">
     <h2>Sign Up</h2>
-    <form>
-      <input class="input" type="text" name="username" placeholder="select username..."/>
-      <input class="input" type="password" name="password1" placeholder="password..."/>
-      <input class="input" type="password" name="password2" placeholder="re-type password..."/>
+    <form method="POST" action="/newUser">
+      <input class="input" type="text" name="firstName" placeholder="enter first name..." required/>
+      <input class="input" type="text" name="lastName" placeholder="enter last name..." required/>
+      <input class="input" type="text" name="username" placeholder="username..." required/>
+      <br>
+      <input class="input" type="password" name="password1" placeholder="password..." required/>
+      <input class="input" type="password" name="password2" placeholder="re-type password..." required/>
       <input type="submit" value="sign up"/>
     </form>
   </div>

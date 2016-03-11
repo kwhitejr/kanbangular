@@ -113,15 +113,36 @@ app.get('/api/cards', function (req, res) {
 
 // });
 
-app.post('/api/newUser', function (req, res) {
+app.post('/newUser', function (req, res, next) {
   var data = req.body;
   console.log(data);
 
-  return User
-    .create(data)
-    .then(function (result) {
-      return res.json(result);
-    });
+  if (data.password1 === data.password2) {
+    User.findOrCreate(
+      {
+        where: {
+          username: data.username
+        },
+        defaults: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          password: data.password1
+        }
+      }
+    )
+      .spread(function(user, created) {
+        if (created) {
+          console.log('great job, you signed up');
+
+        } else {
+          console.log('username already exists');
+        }
+      });
+  } else {
+    console.log('password does not match!');
+  }
+  res.sendFile(path.resolve('./public/login.html'));
+
 });
 
 app.post('/api/newCard', function (req, res) {

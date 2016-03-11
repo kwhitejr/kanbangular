@@ -19,7 +19,7 @@ h3 {
 }
 
 p {
-  margin: 0px 0px 0px 10px;
+  margin: 0px;
 }
 
 .wrapper {
@@ -70,18 +70,8 @@ p {
   height: 130px;
   padding: 10px;
   margin: 10px;
+  border-radius: 5px;
 }
-
-.card:hover {
-  border: 2px;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  box-shadow: 0 0 10px #E8E8E8;
-}
-
-/*.cardSection {
-  display: block;
-}*/
 
 .cardHeader {
   height: 20%;
@@ -100,19 +90,47 @@ p {
 }
 
 .yellow {
-  background-color: yellow;
+  border: 4px solid yellow;
+  background-color: #ffffe6;
+}
+
+.yellow:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #E8E8E8;
 }
 
 .orange {
-  background-color: orange;
+  border: 4px solid orange;
+  background-color: #fff6e6;
+}
+
+.orange:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #E8E8E8;
 }
 
 .pink {
-  background-color: pink;
+  border: 4px solid pink;
+  background-color: #ffe6ea;
+}
+
+.pink:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #E8E8E8;
 }
 
 .red {
-  background-color: red;
+  border: 4px solid red;
+  background-color: #ffe6e6;
+}
+
+.red:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #E8E8E8;
 }
 
 .status > form > button {
