@@ -13,9 +13,12 @@ app
 
       Users
         .fetchUsers()
-        .then(function () {
+        .then(function (fetchedUsers) {
           $scope.users = Users.getUsers();
         });
+
+      console.log(Users.getUsers());
+      console.log($scope.users);
 
       $scope.createCard = function ($event) {
         $event.preventDefault();
@@ -42,7 +45,7 @@ app
         newUser = {
           firstName: $event.target.firstName.value,
           lastName: $event.target.lastName.value,
-          userName: $event.target.userName.value,
+          username: $event.target.username.value,
           password: $event.target.password.value
         };
         // use existing factory to send post req
@@ -115,14 +118,14 @@ app
               return user.id === userId;
             });
             if (result.length > 0) {
-              return result[0].userName;
+              return result[0].username;
             } else {
               return '';
             }
           }
         }
       ],
-      templateUrl: 'templates/card.html'
+      templateUrl: 'dashboard/templates/card.html'
 
       //insert Drag-and-Drop code here
     };
@@ -195,7 +198,7 @@ app.controller('editCardController', [
         return user.id === userId;
       });
       if (result.length > 0) {
-        return result[0].userName;
+        return result[0].username;
       } else {
         return '';
       }

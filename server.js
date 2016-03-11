@@ -29,10 +29,10 @@ passport.use(new LocalStrategy(
     console.log('username: ', username);
     console.log('password: ', password);
     User.findOne({
-      where: {
+      // where: {
         username: username,
         password: password
-      }
+      // }
     }).
     then(function (user) {
       console.log(user);
@@ -57,6 +57,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 /****** I don't know what this does **********/
 
+
+app.use('/#', function (req, res, next) {
+  isAuthenticated();
+  next();
+});
+
 app.use('/api', function (req, res, next) {
   next();
 });
@@ -67,8 +73,9 @@ app.route('/login')
       res.sendFile(path.resolve('./public/login.html'));
   })
   .post(
-    function (req, res) {
+    function (req, res, next) {
       console.log(req.body);
+      next();
     },
     passport.authenticate('local', {
       successRedirect: '/',
@@ -79,7 +86,7 @@ app.route('/login')
 app.get('/',
   isAuthenticated,
   function (req, res) {
-    res.render('index');
+    res.sendFile(path.resolve('./public/dashboard/index.html'));
   });
 
 app.get('/api/users', function (req, res) {

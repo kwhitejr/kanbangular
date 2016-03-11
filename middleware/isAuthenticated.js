@@ -1,5 +1,5 @@
 module.exports = function (req, res, next) {
-  if (! req.isAuthenticated()) {
+  if (!req.isAuthenticated()) {
     console.log('you are NOT logged in');
     return res.redirect('/login');
   }

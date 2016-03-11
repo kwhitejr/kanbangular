@@ -3,7 +3,7 @@
   <form ng-submit="createUser($event)">
     First Name: <input name="firstName" type="text" required/>
     Last Name: <input name="lastName" type="text" required/>
-    UserName: <input name="userName" type="text" required/>
+    UserName: <input name="username" type="text" required/>
     Password: <input name="password" type="password" required/>
     <button type="submit">Sign Up</button>
   </form>
@@ -20,10 +20,10 @@
       <option value="omega">Omega</option>
     </select>
     Creator: <select name="creator_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+      <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
     </select>
     Assignee: <select name="assignee_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.userName}}</option>
+      <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
     </select>
     <button>Add Card</button>
   </form>

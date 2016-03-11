@@ -7,14 +7,14 @@ app
     $routeProvider
       .when('/', {
         controller: 'MyController',
-        templateUrl: '/templates/tasks.html'
+        templateUrl: '/dashboard/templates/tasks.html'
       })
       .when('/editCard/:id', {
         controller: 'editCardController',
-        templateUrl: '/templates/editCard.html'
+        templateUrl: '/dashboard/templates/editCard.html'
       })
       .when('/404', {
-        templateUrl: '/templates/404.html'
+        templateUrl: '/dashboard/templates/404.html'
       })
       .otherwise('/404');
 
