@@ -5,6 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('cards', [
       {
         title: "Create Database",
+        details: "create a postgres database containing users and task cards.",
         status: "in-progress",
         priority: "high",
         creator_id: 2,
@@ -14,6 +15,7 @@ module.exports = {
       },
       {
         title: "Seed Database",
+        details: "seed the postgres database with users and task cards.",
         status: "in-progress",
         priority: "medium",
         creator_id: 2,
@@ -23,6 +25,7 @@ module.exports = {
       },
       {
         title: "Post Card Data Via Form",
+        details: "use your awesome form to post new cards to the database.",
         status: "queue",
         priority: "medium",
         creator_id: 2,

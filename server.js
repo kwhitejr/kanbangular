@@ -177,6 +177,7 @@ app.post('/api/update/:id', function (req, res) {
   Card.update(
     {
       title: data.title,
+      details: data.details,
       creator_id: data.creator_id,
       assignee_id: data.assignee_id,
       priority: data.priority,

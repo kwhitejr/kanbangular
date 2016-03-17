@@ -24,6 +24,7 @@ app
         $event.preventDefault();
         newCard = {
           title: $event.target.title.value,
+          details: $event.target.details.value,
           status: "queue",
           priority: $event.target.priority.value,
           creator_id: parseInt($event.target.creator_id.value),
@@ -174,6 +175,7 @@ app.controller('editCardController', [
       var updatedCard = {
         id: $scope.card.id,
         title: $event.target.title.value,
+        details: $event.target.details.value,
         creator_id: parseInt($event.target.creator_id.value),
         assignee_id: parseInt($event.target.assignee_id.value),
         priority: $event.target.priority.value,
