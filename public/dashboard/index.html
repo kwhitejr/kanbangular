@@ -6,8 +6,13 @@
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 </head>
 <body ng-app="app">
-  <header>
-
+  <header ng-controller="navigationController">
+    <ul>
+      <li>
+        <a href="/logout" ng-show="$scope.isUserLoggedIn">Logout</a>
+        <a href="/login" ng-show="!$scope.isUserLoggedIn">Login</a>
+      </li>
+    </ul>
   </header>
   <h1>Angular Kanbangular</h1>
 

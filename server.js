@@ -1,15 +1,16 @@
 var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
+    CONFIG = require('./config.json'),
+    session = require('express-session'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    session = require('express-session'),
     isAuthenticated = require('./middleware/isAuthenticated'),
+    RedisStore = require('connect-redis')(session),
     morgan = require('morgan'),
     db = require('./models'),
     Card = db.Card,
-    User = db.User,
-    CONFIG = require('./config.json');
+    User = db.User;
 
 
 var app = express();
@@ -19,7 +20,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use(session({ secret: CONFIG.SESSION.secret }));
+app.use(session({
+  store: new RedisStore(
+    {
+      host: '127.0.0.1',
+      port: '6379'
+    }
+  ),
+  secret: CONFIG.SESSION.secret
+}));
 
 passport.use(new LocalStrategy(
   {
@@ -57,6 +66,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 /****** I don't know what this does **********/
 
+//creates a default value for res.locals
+app.use(function (req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
 
 app.use('/#', function (req, res, next) {
   isAuthenticated();
@@ -224,8 +238,8 @@ app.post('/api/delete/:id', function (req, res) {
 db.sequelize
   .sync() // attempts to match the database to the models
   .then(function () {
-    app.listen(CONFIG.PORT, function() {
-      console.log('Listening to port', CONFIG.PORT);
+    app.listen(CONFIG.CONSTANTS.PORT, function() {
+      console.log('Listening to port', CONFIG.CONSTANTS.PORT);
     });
   }).catch(function (err) {
     console.log(err);

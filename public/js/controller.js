@@ -207,3 +207,10 @@ app.controller('editCardController', [
     }
   }
 ]);
+
+app.controller('navigationController', [
+  '$scope',
+  function ($scope) {
+    $scope.isUserLoggedIn = true;
+  }
+]);

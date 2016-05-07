@@ -73,6 +73,11 @@ p {
   border-radius: 5px;
 }
 
+.card:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 .cardHeader {
   height: 20%;
 }
@@ -95,8 +100,6 @@ p {
 }
 
 .yellow:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
   box-shadow: 0 0 10px #E8E8E8;
 }
 
@@ -106,8 +109,6 @@ p {
 }
 
 .orange:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
   box-shadow: 0 0 10px #E8E8E8;
 }
 
@@ -117,8 +118,6 @@ p {
 }
 
 .pink:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
   box-shadow: 0 0 10px #E8E8E8;
 }
 
@@ -128,8 +127,6 @@ p {
 }
 
 .red:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
   box-shadow: 0 0 10px #E8E8E8;
 }
 

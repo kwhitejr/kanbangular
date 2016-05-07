@@ -1,7 +1,9 @@
 {
-  "PORT": 8000,
+  "CONSTANTS": {
+    "PORT": 8000
+  },
   "SESSION": {
-    "secret" : "galactic puma",
+    "secret": "galactic puma",
     "resave": true,
     "saveUninitialized": true
   }
