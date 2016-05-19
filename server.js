@@ -44,7 +44,6 @@ passport.use(new LocalStrategy(
       // }
     }).
     then(function (user) {
-      console.log(user);
       if ( !user ) {
         return done(null, false);
       }
