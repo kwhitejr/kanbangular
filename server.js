@@ -54,10 +54,14 @@ passport.use(new LocalStrategy(
 
 /****** I don't know what this does **********/
 passport.serializeUser(function (user, done) {
+  console.log('done: ', done);
+  console.log('user: ', user);
   return done(null, user);
 });
 
 passport.deserializeUser(function (user, done) {
+  console.log('done: ', done);
+  console.log('user: ', user);
   return done(null, user);
 });
 
