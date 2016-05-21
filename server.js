@@ -50,7 +50,9 @@ app.use(session({
       port: '6379'
     }
   ),
-  secret: CONFIG.SESSION.secret
+  secret: CONFIG.SESSION.secret,
+  resave: true,
+  saveUninitialized: true
 }));
 
 /****** I don't know what this does **********/
