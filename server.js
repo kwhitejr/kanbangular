@@ -43,7 +43,7 @@ passport.use(new LocalStrategy(
     User.findOne({
       where: {
         username: username,
-        password: password
+        password: User.hashPassword(password)
       }
     }).
     then(function (user) {
