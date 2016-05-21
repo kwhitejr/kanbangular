@@ -41,10 +41,10 @@ passport.use(new LocalStrategy(
     console.log('username: ', username);
     console.log('password: ', password);
     User.findOne({
-      // where: {
+      where: {
         username: username,
         password: password
-      // }
+      }
     }).
     then(function (user) {
       if ( !user ) {
