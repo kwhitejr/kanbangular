@@ -20,6 +20,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+app.use(session({
+  // store: new RedisStore(
+  //   {
+  //     host: '127.0.0.1',
+  //     port: '6379'
+  //   }
+  // ),
+  secret: CONFIG.SESSION.secret,
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
+}));
 
 passport.use(new LocalStrategy(
   {
@@ -43,18 +55,6 @@ passport.use(new LocalStrategy(
   }
 ));
 
-app.use(session({
-  // store: new RedisStore(
-  //   {
-  //     host: '127.0.0.1',
-  //     port: '6379'
-  //   }
-  // ),
-  secret: CONFIG.SESSION.secret,
-  proxy: true,
-  resave: true,
-  saveUninitialized: true
-}));
 
 /****** I don't know what this does **********/
 passport.serializeUser(function (user, done) {
