@@ -1,6 +1,6 @@
 {
   "CONSTANTS": {
-    "PORT": 8000
+    "PORT": 8083
   },
   "SESSION": {
     "secret": "galactic puma",

@@ -55,14 +55,14 @@ app.use(session({
 
 /****** I don't know what this does **********/
 passport.serializeUser(function (user, done) {
-  console.log('done: ', done);
-  console.log('user: ', user);
+  console.log('serialize done: ', done);
+  console.log('serialize user: ', user);
   return done(null, user);
 });
 
 passport.deserializeUser(function (user, done) {
-  console.log('done: ', done);
-  console.log('user: ', user);
+  console.log('DEserialize done: ', done);
+  console.log('DEserialize user: ', user);
   return done(null, user);
 });
 
