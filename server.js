@@ -44,13 +44,14 @@ passport.use(new LocalStrategy(
 ));
 
 app.use(session({
-  store: new RedisStore(
-    {
-      host: '127.0.0.1',
-      port: '6379'
-    }
-  ),
+  // store: new RedisStore(
+  //   {
+  //     host: '127.0.0.1',
+  //     port: '6379'
+  //   }
+  // ),
   secret: CONFIG.SESSION.secret,
+  proxy: true,
   resave: true,
   saveUninitialized: true
 }));
