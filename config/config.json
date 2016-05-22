@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "admin",
+    "username": "kevin",
     "password": null,
     "database": "kanban_dev",
     "host": "127.0.0.1",

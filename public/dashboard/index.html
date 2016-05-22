@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Kanban</title>
+  <link rel="stylesheet" type="text/css" href="/styles/foundation.css">
+  <link rel="stylesheet" type="text/css" href="/styles/app.css">
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
 </head>
 <body ng-app="app">
   <header ng-controller="navigationController">
     <ul>
       <li>
-        <a href="/logout" ng-show="$scope.isUserLoggedIn">Logout</a>
-        <a href="/login" ng-show="!$scope.isUserLoggedIn">Login</a>
+        <a href="/logout">Logout</a>
       </li>
     </ul>
   </header>
   <h1>Angular Kanbangular</h1>
 
   <div ng-view class="wrapper"></div>
-
+  <script src="./vendor/jquery.js"></script>
+  <script src="./vendor/what-input.js"></script>
+  <script src="./vendor/foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.js"></script>
