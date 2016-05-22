@@ -104,6 +104,14 @@ app.route('/login')
     })
 );
 
+app.route('/logout')
+  .get(
+    function (req, res) {
+      req.logout();
+      res.redirect('/login');
+    }
+  );
+
 app.get('/',
   isAuthenticated,
   function (req, res) {

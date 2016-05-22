@@ -1,22 +1,48 @@
-<div class="card-maker" >
-  <h2>Create New Card</h1>
-  <form ng-submit="createCard($event)">
-    Title: <input name="title" type="text" ng-model="title" placeholder="title..." required>
-    Details: <input name="details" type="textbox" placeholder="carrier has arrived..." />
-    Priority: <select name="priority">
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-      <option value="omega">Omega</option>
-    </select>
-    Creator: <select name="creator_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
-    </select>
-    Assignee: <select name="assignee_id">
-      <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
-    </select>
-    <button>Add Card</button>
-  </form>
+<div class="row" >
+  <div class="small-8 small-centered">
+    <h3>Create New Card</h3>
+    <form ng-submit="createCard($event)">
+      <div class="row">
+        <div class="small-4 column">
+          <label>Title
+            <input name="title" type="text" ng-model="title" placeholder="title..." required>
+          </label>
+        </div>
+        <div class="small-8 column">
+          <label>Details
+            <input name="details" type="text" placeholder="carrier has arrived..." />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 column">
+          <label>Creator
+            <select name="creator_id">
+              <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="small-4 column">
+          <label>Assignee
+            <select name="assignee_id">
+              <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="small-4 column">
+          <label>Priority
+            <select name="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="omega">Omega</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <button class="button" type="submit">Add Card</button>
+    </form>
+  </div>
 </div>
 
 <div class="container-column" >

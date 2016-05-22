@@ -17,9 +17,6 @@ app
           $scope.users = Users.getUsers();
         });
 
-      console.log(Users.getUsers());
-      console.log($scope.users);
-
       $scope.createCard = function ($event) {
         $event.preventDefault();
         newCard = {

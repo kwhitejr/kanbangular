@@ -8,31 +8,54 @@
   <title>Login</title>
 </head>
 <body>
-  <h1>Welcome to Kanbangular</h1>
-  <div class="item-column login">
-    <h2>Login</h2>
-    <form method="POST" action="/login">
-      <input class="input" type="text" name="username" placeholder="username..." required/>
-      <input class="input" type="password" name="password" placeholder="password..." required/>
-      <input type="submit" value="login"/>
-    </form>
+  <div class="row">
+    <div class="small-8 small-centered large-6 large-centered column">
+      <h1>Welcome to Kanbangular</h1>
+    </div>
   </div>
 
-  <div class="item-column signUp">
-    <h2>Sign Up</h2>
-    <form method="POST" action="/newUser">
-      <input class="input" type="text" name="firstName" placeholder="enter first name..." required/>
-      <input class="input" type="text" name="lastName" placeholder="enter last name..." required/>
-      <input class="input" type="text" name="username" placeholder="username..." required/>
-      <br>
-      <input class="input" type="password" name="password1" placeholder="password..." required/>
-      <input class="input" type="password" name="password2" placeholder="re-type password..." required/>
-      <input type="submit" value="sign up"/>
-    </form>
+  <div class="row">
+    <div class="small-6 large-4 large-offset-1 column">
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+          <label>Username
+            <input class="input" type="text" name="username" placeholder="enter username..." required/>
+          </label>
+          <label>Password
+            <input class="input" type="password" name="password" placeholder="enter password..." required/>
+          </label>
+          <button class="button" type="submit" value="login">Log In</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="small-6 large-4 column end">
+      <h2>Sign Up</h2>
+      <form method="POST" action="/newUser">
+        <label>First Name
+          <input class="input" type="text" name="firstName" placeholder="enter first name..." required/>
+        </label>
+        <label>Last Name
+          <input class="input" type="text" name="lastName" placeholder="enter last name..." required/>
+        </label>
+        <label>Username
+          <input class="input" type="text" name="username" placeholder="enter username..." required/>
+        </label>
+        <label>Password
+          <input class="input" type="password" name="password1" placeholder="password..." required/>
+        </label>
+        <label>Re-enter Password
+          <input class="input" type="password" name="password2" placeholder="re-enter password..." required/>
+        </label>
+        <button class="button" type="submit" value="sign up">Submit</button>
+      </form>
+    </div>
+
   </div>
-  <script src="./vendor/jquery.js"></script>
-  <script src="./vendor/what-input.js"></script>
-  <script src="./vendor/foundation.js"></script>
+
+  <script src="./js/vendor/jquery.js"></script>
+  <script src="./js/vendor/what-input.js"></script>
+  <script src="./js/vendor/foundation.js"></script>
   <script>
     $(document).foundation();
   </script>
