@@ -8,16 +8,32 @@
   <title>Login</title>
 </head>
 <body>
-  <div class="row">
-    <div class="small-8 small-centered large-6 large-centered column">
-      <h1>Welcome to Kanbangular</h1>
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-title">
+        <strong>
+          Welcome to Angular Kanbangular
+        </strong>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a href="#">About</a>
+            <ul class="menu vertical">
+              <li><a href="#">Kevin</a></li>
+              <li><a href="#">This Site</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </header>
 
   <div class="row">
-    <div class="small-6 large-4 large-offset-1 column">
-        <h2>Login</h2>
-        <form method="POST" action="/login">
+    <div>
+      <form class="small-5 small-offset-1 column" method="POST" action="/login">
+        <h3>Login</h3>
           <label>Username
             <input class="input" type="text" name="username" placeholder="enter username..." required/>
           </label>
@@ -25,13 +41,12 @@
             <input class="input" type="password" name="password" placeholder="enter password..." required/>
           </label>
           <button class="button" type="submit" value="login">Log In</button>
-        </form>
-      </div>
+      </form>
     </div>
 
-    <div class="small-6 large-4 column end">
-      <h2>Sign Up</h2>
-      <form method="POST" action="/newUser">
+    <div>
+      <form class="small-5 column end" method="POST" action="/newUser">
+        <h3><span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover="false" tabindex="1" title="User sign up is for demonstrative purposes only. By all means, make up some fake credentials and enjoy!">Sign Up</span></h3>
         <label>First Name
           <input class="input" type="text" name="firstName" placeholder="enter first name..." required/>
         </label>
