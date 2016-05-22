@@ -31,17 +31,6 @@ p {
 /*  display: flex;*/
   height: 100%;
   width: 100%;
-  min-width: 900px;
-}
-
-.item-column {
-  width: 30%;
-  min-width: 270px;
-  height: 100%;
-  margin: 15px;
-  padding: 10px;
-  float: left;
-  overflow: scroll;
 }
 
 .queue, .in-progress, .done {
@@ -61,18 +50,19 @@ p {
   background-color: lightblue;
 }
 
-.card {
-/*  width: 100%;*/
+.card:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*.card {
+
   height: 130px;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
 }
 
-.card:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 
 .cardHeader {
   height: 20%;
@@ -88,7 +78,7 @@ p {
 
 .cardEdit {
   float: right;
-}
+}*/
 
 .yellow {
   border: 4px solid yellow;

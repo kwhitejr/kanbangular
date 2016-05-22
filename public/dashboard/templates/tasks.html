@@ -45,23 +45,23 @@
   </div>
 </div>
 
-<div class="container-column" >
+<div class="row container-column">
 
-  <div class="queue item-column">
+  <div class="small-4 column queue">
     <h2>Queue</h2>
     <div dragula="'status-bag'" class="queue">
       <card-directive ng-repeat="card in cards | filter:{status: 'queue'}" card="card" refresh-cards="refreshCards" id="{{card.id}}"></card-directive>
     </div>
   </div>
 
-  <div class="in-progress item-column">
+  <div class="small-4 column in-progress">
     <h2>In-Progress</h2>
     <div dragula="'status-bag'" class="in-progress">
       <card-directive ng-repeat="card in cards | filter:{status: 'in-progress'}" card="card" refresh-cards="refreshCards" id="{{card.id}}"></card-directive>
     </div>
   </div>
 
-  <div class="done item-column">
+  <div class="small-4 column done">
     <h2>Done</h2>
     <div dragula="'status-bag'" class="done">
       <card-directive ng-repeat="card in cards | filter:{status: 'done'}" card="card" refresh-cards="refreshCards" id="{{card.id}}"></card-directive>
