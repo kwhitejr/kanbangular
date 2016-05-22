@@ -1,39 +1,67 @@
-<div>
-  <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}" class="editCard">
+<div class="row callout">
+  <div ng-class="{yellow: card.priority == 'low', orange: card.priority == 'medium', pink: card.priority == 'high', red: card.priority == 'omega'}" class="small-10 small-centered column">
     <form ng-submit="update($event)">
-      <div class="">
-        Title: <input type="text" name="title" value="{{card.title}}" required/>
-        <br>
-        Details: <input type="text" name="details" value="{{card.details}}" required/>
-        <br>
-        Creator:
-        <select name="creator_id">
-          <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
-        </select>
-        <br>
-        Assignee:
-        <select name="assignee_id">
-          <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
-        </select>
-        <br>
-        Priority:
-        <select name="priority">
-          <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
-        </select>
-        <br>
-        Status:
-        <select name="status">
-          <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
-        </select>
-        <br>
-        <button>Update</button>
+      <h3>Edit This Card!</h3>
+      <div class="row">
+        <div class="small-4 column">
+          <label>Title
+            <input type="text" name="title" value="{{card.title}}" required/>
+          </label>
+        </div>
+        <div class="small-8 column">
+          <label>Details
+            <input type="text" name="details" value="{{card.details}}" required/>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 column">
+          <label>Creator:
+            <select name="creator_id">
+              <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="small-6 column">
+          <label>Assignee:
+            <select name="assignee_id">
+              <option ng-repeat="user in users" value="{{user.id}}">{{user.username}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-6 column">
+          <label>Priority:
+            <select name="priority">
+              <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+            </select>
+          </label>
+        </div>
+        <div class="small-6 column">
+          <label>Current Status
+            <select name="status">
+              <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <button class="button" type="submit">Update</button>
+        </div>
+
       </div>
     </form>
-
-    <form ng-submit="delete()">
-      <input type="submit" value="Delete" />
-    </form>
-    <a href="/#/" >Cancel</a>
+    <div class="row">
+      <div class="column">
+        <form ng-submit="delete()">
+          <button class="button alert" type="submit">Delete</button>
+        </form>
+        <a href="/#/" class="button secondary">Cancel</a>
+      </div>
+    </div>
 
   </div>
 </div>
